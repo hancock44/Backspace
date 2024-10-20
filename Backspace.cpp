@@ -8,24 +8,20 @@ using namespace std;
 int main() {
     string input;
     getline(cin, input);
-    stack<char> result;
+    string result;
     for (char c : input) {
         if (c == '<') {
             if (!result.empty()) { 
-                result.pop();
+                result.pop_back();
             }
         } 
         else {
-            result.push(c);
+            result.push_back(c);
         }
     }
-    string ans;
-    while (!result.empty()) {
-        ans = result.top() + ans;
-        result.pop();
-    }
 
-    cout << ans << endl;
+    cout << result << endl;
 
     return 0;
 }
+
